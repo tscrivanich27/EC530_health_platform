@@ -1,14 +1,23 @@
 #!/usr/bin/env python
 
 import json
+from flask import Flask
+from flask_restful import Resource, Api, reqparse
 
-try:
-    f = open('data.json')
-    data = json.load(f)
-except (FileNotFoundError):
-    print("The file cannot be found.")
-except (json.JSONDecodeError):
-    print("The file is not in a JSON format")
+app = Flask(__name__)
+api = Api(app)
+class Devices(Resource):
+    def get(self):
+        user = ""
+        f = open("data.json")
+        data = json.load(f)
+        if data['device'][0]["device_ID"] == "F5hgu479fn2":
+            user = "Jim"
+            return {user: data["device"][0]["data"]}, 200
+        else:
+            return {}, 200
 
-with open("database.txt", "w") as outfile:
-    json.dump(data, outfile)
+api.add_resource(Devices, '/devices')
+
+if __name__ == '__main__':
+    app.run()
