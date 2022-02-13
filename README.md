@@ -14,3 +14,24 @@ Strategy:
 
 * Each branch will be added to the main branch when testing (unit/integration) is complete and the phase for the module has ended.
 * Continuous Integration will occur in a branch during its respective phase in the project. 
+
+## Device Module
+
+Utilized the Flask module in Python to create a REST API that will handle all devices on the health platform.
+
+Dependencies: 
+
+* flask
+* flask_restful 
+* requests
+* json
+
+Using the requests module, the API recieves a json file from http://127.0.0.1:5000/devices/"file_name". The API will check to ensure that it includes the following parameters:
+
+1) Device ID (string): Used to assign/match the device with a patient
+2) Device Serial Number (int): Used to check the type of device. The type of device will indicate the data that should come in  
+3) Data (dict): Information for the patient and medical professional. Includes blood pressure, temperature, pulse, weight, glucose levels, and oxygen levels
+
+Unit Tests:
+
+1) JSON file with no Device ID -> Program should abort with an error message
