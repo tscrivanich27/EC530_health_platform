@@ -130,6 +130,6 @@ dmypy.json
 
 # Modules to ignore
 
-flask 
+flask
 flask_restful
 requests
