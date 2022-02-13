@@ -26,7 +26,7 @@ Dependencies:
 * requests
 * json
 
-Using the requests module, the API recieves a json file from http://127.0.0.1:5000/devices/"file_name". The API will check to ensure that it includes the following parameters:
+Using the requests module, the API recieves a json file from http://127.0.0.1:5000/devices/file_name. The API will check to ensure that it includes the following parameters:
 
 1) Device ID (string): Used to assign/match the device with a patient
 2) Device Serial Number (int): Used to check the type of device. The type of device will indicate the data that should come in  
