@@ -39,3 +39,4 @@ Unit Tests:
 3) JSON file with no Device Serial Number -> Program should abort with an error message
 4) JSON file with invalid Device Serial Number type -> Program should abort with an error message
 5) JSON file with no Device Data -> Program should abort with an error message
+6) JSON file with invalid Device Data type -> Program should abort with an error message
