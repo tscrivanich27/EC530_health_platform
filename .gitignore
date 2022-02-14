@@ -133,3 +133,4 @@ dmypy.json
 flask
 flask_restful
 requests
+pytest

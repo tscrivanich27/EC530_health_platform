@@ -6,7 +6,11 @@ from flask import Flask
 from flask_restful import Resource, Api, abort
 
 # Initialize the Flask REST API
-app = Flask(__name__)
+def create_app():
+    myapp = Flask(__name__)
+    return myapp 
+
+app = create_app()
 api = Api(app)
 
 # Function to check for Device ID
