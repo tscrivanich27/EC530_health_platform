@@ -20,7 +20,7 @@ def test_no_device_id():
         assert arg == {'message': 
             'The device ID is not present or has an invalid type'}
         logging.info("Unit Test #1 Succeeded")
-    # Catch Assertation Error
+    # Catch Assertion Error
     except (AssertionError):
         logging.error("Unit Test #1 Failed")
 
@@ -35,13 +35,30 @@ def test_invalid_id_type():
         # Check the contents of the json structure
         assert arg == {'message': 
             'The device ID is not present or has an invalid type'}
-        logging.info("Unit Test #2 Succeesed")
-    # Catch Assertation Error
+        logging.info("Unit Test #2 Succeeded")
+    # Catch Assertion Error
     except (AssertionError):
         logging.error("Unit Test #2 Failed")
+
+# Unit Test #3: Device Serial Number is not present
+def test_no_device_serial_number():
+    logging.info("Running Unit Test #3")
+    try:
+        # Get a response from the server 
+        response = requests.get(BASE + "devices/no_device_serial_number.json")
+        # Format the response as a json structure
+        arg = response.json()
+        # Check the contents of the json structure
+        assert arg == {'message': 
+            'The serial number is not present or has an invalid type'}
+        logging.info("Unit Test #3 Succeeded")
+    # Catch Assertion Error
+    except (AssertionError):
+        logging.error("Unit Test #3 Failed")
 
 # Main function 
 if __name__ == "__main__":
     test_no_device_id()
     test_invalid_id_type()
+    test_no_device_serial_number()
     logging.info("Ran All Tests")
