@@ -87,6 +87,22 @@ def test_no_device_data():
     # Catch Assertion Error
     except (AssertionError):
         logging.error("Unit Test #5 Failed")
+        
+# Unit Test #6: Device Data has invalid type
+def test_invalid_data_type():
+    logging.info("Running Unit Test #6")
+    try:
+        # Get a response from the server
+        response = requests.get(BASE + "devices/wrong_device_data_type.json")
+        # Format the response as a json structure
+        arg = response.json()
+        # Check the contents of the json structure
+        assert arg == {'message':
+            'The data is not present or has an invalid type'}
+        logging.info("Unit Test #6 Succeeded")
+    # Catch Assertion Error
+    except (AssertionError):
+        logging.error("Unit Test #6 Failed")
 
 # Main function 
 if __name__ == "__main__":
@@ -95,4 +111,5 @@ if __name__ == "__main__":
     test_no_device_serial_number()
     test_invalid_serial_number_type()
     test_no_device_data()
+    test_invalid_data_type()
     logging.info("Ran All Tests")
