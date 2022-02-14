@@ -1,6 +1,6 @@
 # Modules for test.py
 import requests 
-import logging
+import logging 
 
 # Initialize Logging for Unit Tests
 logging.basicConfig(filename='example.log', filemode='w', level=logging.DEBUG)
@@ -56,9 +56,26 @@ def test_no_device_serial_number():
     except (AssertionError):
         logging.error("Unit Test #3 Failed")
 
+# Unit Test #4: Device Serial Number has an invalid type
+def test_invalid_serial_number_type():
+    logging.info("Running Unit Test #4")
+    try:
+        # Get a response from the server
+        response = requests.get(BASE + "devices/wrong_device_serial_number_type.json")
+        # Format the response as a json structure
+        arg = response.json()
+        # Check the contents of the json structure
+        assert arg == {'message':
+            'The serial number is not present or has an invalid type'}
+        logging.info("Unit Test #4 Succeeded")
+    # Catch Assertion Error
+    except (AssertionError):
+        logging.error("Unit Test #4 Failed")
+
 # Main function 
 if __name__ == "__main__":
     test_no_device_id()
     test_invalid_id_type()
     test_no_device_serial_number()
+    test_invalid_serial_number_type()
     logging.info("Ran All Tests")
