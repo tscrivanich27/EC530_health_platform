@@ -35,3 +35,5 @@ Using the requests module, the API recieves a json file from http://127.0.0.1:50
 Unit Tests:
 
 1) JSON file with no Device ID -> Program should abort with an error message
+2) JSON file with invalid Device ID type -> Program should abort with an error message
+3) JSON file with no Device Serial Number -> Program should abort with an error message
