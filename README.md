@@ -41,6 +41,22 @@ Unit Tests:
 5) JSON file with no Device Data -> Program should abort with an error message
 6) JSON file with invalid Device Data type -> Program should abort with an error message
 
+## Database:
+
+For this project, I am using MongoDB as the database which will contain all patient, medical professional, and administrator data. 
+
+Dependencies:
+
+* pymongo
+
+Here is the schema for documents in the device module:
+
+![#1](https://user-images.githubusercontent.com/73702777/155610109-038f8918-134e-44d1-a68f-8c0521517fca.JPG)
+
+Here is an image of the contents of the cluster in MongoDB, titled "Health-Platform":
+
+![#2](https://user-images.githubusercontent.com/73702777/155610575-7377659c-c8ef-42f6-8355-44f054ac33eb.JPG)
+
 ## User Instructions
 
 1) Download or clone the repository to local machine
