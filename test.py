@@ -104,6 +104,15 @@ def test_invalid_data_type():
     except (AssertionError):
         logging.error("Unit Test #6 Failed")
 
+# Function to send data to MongoDB 
+def test_db():
+    logging.info("Running First Database Test")
+    # Get request for first valid json entry
+    requests.get(BASE + "devices/valid_entry.json")
+    # Get request for second valid json entry
+    requests.get(BASE + "devices/valid_entry_second.json")
+    logging.info("Ran First Database Test")
+
 # Main function 
 if __name__ == "__main__":
     test_no_device_id()
@@ -112,4 +121,5 @@ if __name__ == "__main__":
     test_invalid_serial_number_type()
     test_no_device_data()
     test_invalid_data_type()
+    test_db()
     logging.info("Ran All Tests")
