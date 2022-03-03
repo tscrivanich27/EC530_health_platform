@@ -96,3 +96,4 @@ Example (Windows OS):
 
 * Briggs, James. "The Right Way to Build an API with Python." _Towards Data Science_, 11 September 2020, https://towardsdatascience.com/the-right-way-to-build-an-api-with-python-cd08ab285f8f. Accessed 12 February 2022.
 
+* "How to use Python with MongoDB." _MongoDB_, https://www.mongodb.com/languages/python. Accessed 24 February 2022.
