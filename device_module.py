@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 # Modules for device_module.py
+from datetime import datetime
 import json
 from flask import Flask
 from flask_restful import Resource, Api, abort
@@ -56,6 +57,8 @@ class Devices(Resource):
         json_data = json.loads(json_util.dumps(data))
         collection_name.insert_one(json_data)
         # If all contents are present...return the data with 200 status code
+        current_date = str(datetime.today())
+        data["device"][0].update({'date':current_date})
         return data, 200
 
 # Add resource to the API
