@@ -1,0 +1,16 @@
+{
+    "device": [
+    {
+        "serial_number": 485775321,
+        "data":
+        {
+            "pulse": 91,
+            "blood_pressure": 
+            {
+                "systolic": 130,
+                "diastolic": 80
+            }
+        }
+    }
+    ]
+}

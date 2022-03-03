@@ -128,9 +128,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Modules to ignore 
-flask 
+# Modules to ignore
+
+flask
 flask_restful
 requests
-dns 
 pymongo
+dns

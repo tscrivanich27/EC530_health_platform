@@ -1,0 +1,17 @@
+{
+    "device": [
+    {
+        "device_ID": "F49gn2T4i9",
+        "serial_number": "39586739",
+        "data":
+        {
+            "pulse": 91,
+            "blood_pressure": 
+            {
+                "systolic": 130,
+                "diastolic": 80
+            }
+        }
+    }
+    ]
+}
