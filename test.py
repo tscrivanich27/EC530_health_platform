@@ -133,6 +133,8 @@ def test_db():
     requests.get(BASE + "devices/valid_entry.json")
     # Get request for second valid json entry
     requests.get(BASE + "devices/valid_entry_second.json")
+    # Get request for third valid json entry
+    requests.get(BASE + "chat/valid_entry_third.json")
     logging.info("Ran First Database Test")
 
 # Main function 

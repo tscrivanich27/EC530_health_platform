@@ -18,7 +18,8 @@ api = Api(app)
 
 # Initialize the MongoDB database
 db = get_database()
-collection_name = db["device_data"]
+device_collection = db["device"]
+chat_collection = db["chat"]
 
 # Function to check for Device ID
 def abort_if_device_id_not_valid(data):
@@ -83,16 +84,19 @@ class Devices(Resource):
         abort_if_device_id_not_valid(data)
         abort_if_device_serial_number_not_valid(data)
         abort_if_data_not_valid(data)
-        # If all contents are present...send data to device_data collection in MongoDB
-        json_data = json.loads(json_util.dumps(data))
-        collection_name.insert_one(json_data)
-        # If all contents are present...return the data with 200 status code
+        # Add timestamp to json object
         current_date = str(datetime.today())
         data["device"][0].update({'date':current_date})
+        # If all contents are present...send data to device_data collection in MongoDB
+        json_data = json.loads(json_util.dumps(data))
+        device_collection.insert_one(json_data)
+        # If all contents are present...return the data with 200 status code
         return data, 200
 
 class Chat(Resource):
+    # Get function
     def get(self, file_name):
+        # Open the json input file
         f = open(file_name)
         # Format the contents as a Python dictionary
         data = json.load(f)
@@ -103,6 +107,12 @@ class Chat(Resource):
         abort_if_reciever_id_not_valid(data)
         abort_if_user_reciever_not_valid(data)
         abort_if_message_not_valid(data)
+        # Add timestamp to json object
+        current_date = str(datetime.today())
+        data["chat"][0].update({'date':current_date})
+        # If all contents are present...send data to device_data collection in MongoDB
+        json_data = json.loads(json_util.dumps(data))
+        chat_collection.insert_one(json_data)
         # If all contents are present...return the data with 200 status code
         return data, 200
 
