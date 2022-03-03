@@ -41,6 +41,23 @@ Unit Tests:
 5) JSON file with no Device Data -> Program should abort with an error message
 6) JSON file with invalid Device Data type -> Program should abort with an error message
 
+## Chat Module
+
+Utilized the Flask module in Python to create a REST API that will handle all chat messages on the health platform.
+
+Using the requests module, the API recieves a json file from "http://127.0.0.1:5000/chat/"file_name". The API will check to ensure that it includes the following parameters:
+
+1) Sender ID (string): ID for the user sending the message
+2) Sender (string): Name of the message sender
+3) Receiver ID (string): ID for the user receiving the message
+4) Receiver (string): Name of the message receiver
+5) Message (string): Contents of the message
+
+Unit Tests:
+
+7) JSON file with no Sender ID -> Program should abort with an error message
+8) JSON file with no Sender Name -> Program should abort with an error message
+
 ## Database:
 
 For this project, I am using MongoDB as the database which will contain all patient, medical professional, and administrator data. 
