@@ -104,6 +104,28 @@ def test_invalid_data_type():
     except (AssertionError):
         logging.error("Unit Test #6 Failed")
 
+def test_no_sender_id():
+    logging.info("Running Unit Test #7")
+    try:
+        response = requests.get(BASE + "chat/no_sender_id.json")
+        arg = response.json()
+        assert arg == {'message':
+            'The sender ID is not present or has an invalid type'}
+        logging.info("Unit Test #7 Succeeded")
+    except (AssertionError):
+        logging.error("Unit Test #7 Failed")
+
+def test_no_sender():
+    logging.info("Running Unit Test #8")
+    try:
+        response = requests.get(BASE + "chat/no_sender.json")
+        arg = response.json()
+        assert arg == {'message':
+            'The user sender is not present or has an invalid type'}
+        logging.info("Unit Test #8 Succeeded")
+    except (AssertionError):
+        logging.error("Unit Test #8 Failed")
+
 # Function to send data to MongoDB 
 def test_db():
     logging.info("Running First Database Test")
@@ -121,5 +143,7 @@ if __name__ == "__main__":
     test_invalid_serial_number_type()
     test_no_device_data()
     test_invalid_data_type()
+    test_no_sender_id()
+    test_no_sender()
     test_db()
     logging.info("Ran All Tests")
