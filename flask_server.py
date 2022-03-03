@@ -61,6 +61,10 @@ class Devices(Resource):
         data["device"][0].update({'date':current_date})
         return data, 200
 
+class Chat(Resource):
+    def get(self, file_name):
+        f = open(file_name)
+
 # Add resource to the API
 # Parameter: json file
 api.add_resource(Devices, '/devices/<string:file_name>')
