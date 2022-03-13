@@ -1,0 +1,11 @@
+{
+    "chat": [
+    {
+        "sender_ID": "49Gdiw43Gsow",
+        "sender": "Tom Jones",
+        "receiver_ID": "1o35Gskrj49o25",
+        "receiver": "Adam McDonnell",
+        "message": "Hello Adam. I have your metrics results. This includes blood pressure, glucose levels, and oxygen levels. Please schedule a time when you can meet with me so we can go over the results. Thanks!"
+    }
+    ]
+}

@@ -104,27 +104,85 @@ def test_invalid_data_type():
     except (AssertionError):
         logging.error("Unit Test #6 Failed")
 
+# Unit Test #7: No sender ID for chat module
 def test_no_sender_id():
     logging.info("Running Unit Test #7")
     try:
+        # Get a response from the server
         response = requests.get(BASE + "chat/no_sender_id.json")
+        # Format the response as a json structure
         arg = response.json()
+        # Check the contents of the json structure
         assert arg == {'message':
             'The sender ID is not present or has an invalid type'}
         logging.info("Unit Test #7 Succeeded")
+    # Catch Assertion Error
     except (AssertionError):
         logging.error("Unit Test #7 Failed")
 
+# Unit Test #8: No sender name for chat module
 def test_no_sender():
     logging.info("Running Unit Test #8")
     try:
+        # Get a response from the server
         response = requests.get(BASE + "chat/no_sender.json")
+        # Format the response as a json structure
         arg = response.json()
+        # Check the contents of the json structure
         assert arg == {'message':
             'The user sender is not present or has an invalid type'}
         logging.info("Unit Test #8 Succeeded")
+    # Catch Assertion Error
     except (AssertionError):
         logging.error("Unit Test #8 Failed")
+
+# Unit Test #9: No receiver ID for chat module
+def test_no_receiver_id():
+    logging.info("Running Unit Test #9")
+    try:
+        # Get a response from the server
+        response = requests.get(BASE + "chat/no_receiver_id.json")
+        # Format the response as a json structure
+        arg = response.json()
+        # Check the contents of the json structure
+        assert arg == {'message':
+            'The receiver ID is not present or has an invalid type'}
+        logging.info("Unit Test #9 Succeeded")
+    # Catch Assertion Error
+    except (AssertionError):
+        logging.error("Unit Test #9 Failed")
+
+# Unit Test #10: No receiver name for chat module
+def test_no_receiver():
+    logging.info("Running Unit Test #10")
+    try:
+        # Get a response from the server
+        response = requests.get(BASE + "chat/no_receiver.json")
+        # Format the response as a json structure
+        arg = response.json()
+        # Check the contents of the json structure
+        assert arg == {'message': 
+            'The user receiver is not present or has an invalid type'}
+        logging.info("Unit Test #10 Succeeded")
+    # Catch Assertion Error
+    except (AssertionError):
+        logging.error("Unit Test #10 Failed")
+
+# Unit Test #11: No message for chat module
+def test_no_message():
+    logging.info("Running Unit Test #11")
+    try:
+        # Get a response from the server
+        response = requests.get(BASE + "chat/no_message.json")
+        # Format the response as a json structure
+        arg = response.json()
+        # Check the contents of the json structure
+        assert arg == {'message':
+            'The message is not present or has an invalid type'}
+        logging.info("Unit Test #11 Succeeded")
+    # Catch Assertion Error
+    except (AssertionError):
+        logging.error("Unit Test #11 Failed")
 
 # Function to send data to MongoDB 
 def test_db():
@@ -135,6 +193,8 @@ def test_db():
     requests.get(BASE + "devices/valid_entry_second.json")
     # Get request for third valid json entry
     requests.get(BASE + "chat/valid_entry_third.json")
+    # Get request for fourth valid json entry
+    requests.get(BASE + "chat/valid_entry_fourth.json")
     logging.info("Ran First Database Test")
 
 # Main function 
@@ -147,5 +207,8 @@ if __name__ == "__main__":
     test_invalid_data_type()
     test_no_sender_id()
     test_no_sender()
+    test_no_receiver_id()
+    test_no_receiver()
+    test_no_message()
     test_db()
     logging.info("Ran All Tests")
