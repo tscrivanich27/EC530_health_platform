@@ -57,6 +57,9 @@ Unit Tests:
 
 7) JSON file with no Sender ID -> Program should abort with an error message
 8) JSON file with no Sender Name -> Program should abort with an error message
+9) JSON file with no Receiver ID -> Program should abort with an error message
+10) JSON file with no Receiver Name -> Program should abort with an error message
+11) JSON file with no Message -> Program should abort with an error message
 
 ## Database:
 
@@ -69,6 +72,10 @@ Dependencies:
 Here is the schema for documents in the device module:
 
 ![#1](https://user-images.githubusercontent.com/73702777/155610109-038f8918-134e-44d1-a68f-8c0521517fca.JPG)
+
+Here is the schema for documents in the chat module:
+
+![#1](https://user-images.githubusercontent.com/73702777/158066724-a8978bfa-f812-4f9c-b0bd-258df7e9aff1.JPG)
 
 Here is an image of the contents of the cluster in MongoDB, titled "Health-Platform":
 
