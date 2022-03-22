@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Modules for device_module.py
+# Modules for flask_server.py
 from datetime import datetime
 import json
 from flask import Flask
